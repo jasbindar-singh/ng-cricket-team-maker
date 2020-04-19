@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" routerLink="/">Indian Cricket Team</a>
+    <button (click)="toggleCollapse()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [class.collapse]="isCollapsed" class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li routerLinkActive="active" class="nav-item">
+                <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item">
+                <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item">
+                <a class="nav-link" routerLink="/players">Players</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item">
+                <a class="nav-link" routerLink="/team">Team</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item">
+                <a class="nav-link" routerLink="/match-schedule">Match Schedule</a>
+            </li>
+        </ul>
+    </div>
+</nav>

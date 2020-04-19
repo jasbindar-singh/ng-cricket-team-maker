@@ -1,0 +1,22 @@
+<div class="jumbotron">
+    <div class="d-flex flex-row-reverse">
+        <app-header></app-header>
+    </div>
+    <h1 class="display-4">Players List :</h1>
+    <div class="d-flex justify-content-around flex-wrap">
+        <div *ngFor="let player of playerList" class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" [src]="player.image" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">#{{player.id}}. {{player.name}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <!-- <li class="list-group-item">#{{player.id}}</li> -->
+                <li class="list-group-item">{{player.position}}</li>
+            </ul>
+            <div *ngIf="isAdmin()" class="card-body d-flex justify-content-around">
+                <button (click)="showDetails(player)" class="btn btn-primary">Details</button>
+                <app-add-to-team [player]="player"></app-add-to-team>
+            </div>
+        </div>
+    </div>
+</div>

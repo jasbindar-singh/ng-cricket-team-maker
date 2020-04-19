@@ -1,0 +1,15 @@
+<div class="jumbotron">
+    <h1 class="display-4">Login :</h1>
+    <form (submit)="handleSubmit($event)">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input [(ngModel)]="username" type="text" name="username" class="form-control" id="username" aria-describedby="username" placeholder="Enter Username">
+          <small id="username" class="form-text text-muted">We'll never share your details with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input [(ngModel)]="password" type="password" name="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
