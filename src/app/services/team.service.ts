@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Player } from './player';
-import { BehaviorSubject } from 'rxjs';
+import { Player } from '../class/player';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +19,11 @@ export class TeamService {
     this.teamSubject.next(this.teamList);
   }
 
-  getTeamList(){
+  getTeamList():Observable<Player[]>{
     return this.teamSubject.asObservable();
   }
 
-  addTeamMember(player:Player){
+  addTeamMember(player:Player):void{
     if(this.teamList.length < 11){
       this.teamList.push(player);
       alert(`Added: ${player.name}!`)
@@ -34,7 +34,7 @@ export class TeamService {
     }
   }
 
-  removeTeamMember(index:number){
+  removeTeamMember(index:number):void{
     this.teamList.splice(index, 1);
     localStorage.setItem('teamLocal', JSON.stringify(this.teamList));
     this.teamSubject.next(this.teamList);

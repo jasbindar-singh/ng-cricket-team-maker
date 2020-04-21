@@ -28,11 +28,11 @@ export class AuthService {
       this.setUser('guest');
       this.router.navigate(['/home']);
       return "Logged in as Guest!"
-    } else 
+    } else
       return "Wrong Credentials!";
   }
 
-  setUser(user){
+  setUser(user):void{
     this.user = user;
     localStorage.setItem('userLocal', this.user);
     this.userSubject.next(this.user);

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { MatchSchedule } from './match-schedule';
-import { BehaviorSubject } from 'rxjs';
+import { MatchSchedule } from '../class/match-schedule';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class MatchScheduleService {
     this.matchScheduleSubject.next(this.matchScheduleList);
   }
 
-  getMatchSchedules(){
+  getMatchSchedules():Observable<MatchSchedule[]>{
     return this.matchScheduleSubject.asObservable();
   }
 

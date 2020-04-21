@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TeamService } from '../team.service';
+import { TeamService } from '../../services/team.service';
 
 @Component({
   selector: 'app-add-to-team',
@@ -15,7 +15,7 @@ export class AddToTeamComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleClick(){
+  handleClick():void{
     this.team.addTeamMember(this.player)
   }
 

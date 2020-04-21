@@ -11,7 +11,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let matchSchedule of matchScheduleList; index as i">
+            <tr *ngFor="let matchSchedule of matchScheduleList$ | async; index as i">
                 <th scope="row">{{i+1}}</th>
                 <td>{{matchSchedule.date | date:'shortDate'}}</td>
                 <td>{{matchSchedule.opposition}}</td>
