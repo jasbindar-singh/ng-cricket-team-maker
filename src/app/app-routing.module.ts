@@ -7,12 +7,13 @@ import { HomeComponent } from './components/home/home.component';
 import { MatchScheduleComponent } from './components/match-schedule/match-schedule.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 
 const routes: Routes = [
   {path: '', redirectTo:"login", pathMatch:"full" },
   {path: "home", component: HomeComponent},
-  {path: "players", component: PlayersComponent},
+  {path: "players", component: PlayersComponent, canActivate: [AuthGuardGuard]},
   {path: "login", component: LoginComponent},
   {
     path: "team",
@@ -20,7 +21,8 @@ const routes: Routes = [
     children:[{
       path:':id',
       component: PlayerDetailComponent
-    }]
+    }],
+    canActivate: [AuthGuardGuard]
   },
   {path: "match-schedule", component: MatchScheduleComponent},
   {path: "**", component: PageNotFoundComponent}

@@ -12,7 +12,7 @@ import { TeamService } from '../../services/team.service';
 export class PlayersComponent implements OnInit {
 
   public playerList:Player[];
-  public user:string = null;
+  public user:string;
 
   constructor(private playerListService: PlayersService, private auth: AuthService, private team: TeamService) {
     this.playerList = new Array<Player>();

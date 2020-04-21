@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
-  public username$:Observable<string>;
+  public username$:Observable<Object>;
 
   constructor(private auth: AuthService) {
   }
