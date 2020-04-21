@@ -9,16 +9,19 @@
                 <a class="nav-link" routerLink="/home">Home</a>
             </li>
             <li routerLinkActive="active" class="nav-item">
+              <a class="nav-link" routerLink="/players">Players</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item">
+              <a class="nav-link" routerLink="/team">Team</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item">
+              <a class="nav-link" routerLink="/match-schedule">Match Schedule</a>
+            </li>
+            <li *ngIf="!!user" class="nav-item">
+              <a class="nav-link" (click)="handleClick()">Logout</a>
+            </li>
+            <li *ngIf="!user" class="nav-item">
                 <a class="nav-link" routerLink="/login">Login</a>
-            </li>
-            <li routerLinkActive="active" class="nav-item">
-                <a class="nav-link" routerLink="/players">Players</a>
-            </li>
-            <li routerLinkActive="active" class="nav-item">
-                <a class="nav-link" routerLink="/team">Team</a>
-            </li>
-            <li routerLinkActive="active" class="nav-item">
-                <a class="nav-link" routerLink="/match-schedule">Match Schedule</a>
             </li>
         </ul>
     </div>

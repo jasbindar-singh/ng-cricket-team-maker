@@ -31,6 +31,13 @@ export class AuthService {
       return "Wrong Credentials!";
   }
 
+  logout():string{
+    this.userInfo = "";
+    localStorage.removeItem("userLocal");
+    this.userSubject.next(this.userInfo);
+    return "Logged Out Successfully!"
+  }
+
   setUser(user):void{
     this.userInfo = user;
     localStorage.setItem('userLocal', this.userInfo);
@@ -41,9 +48,4 @@ export class AuthService {
     return this.userSubject.asObservable();
   }
 
-  // isLoggedIn():boolean{
-  //   if(this.user){
-
-  //   }
-  // }
 }
