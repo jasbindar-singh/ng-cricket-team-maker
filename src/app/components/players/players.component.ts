@@ -3,6 +3,7 @@ import { PlayersService } from '../../services/players.service';
 import { Player } from '../../class/player';
 import { AuthService } from '../../services/auth.service';
 import { TeamService } from '../../services/team.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-players',
@@ -11,18 +12,16 @@ import { TeamService } from '../../services/team.service';
 })
 export class PlayersComponent implements OnInit {
 
-  public playerList:Player[];
+  public playerList:Observable<Player[]>;
   public user:string;
 
   constructor(private playerListService: PlayersService, private auth: AuthService, private team: TeamService) {
-    this.playerList = new Array<Player>();
+
   }
 
   ngOnInit() {
-    // this.playerListService.getPlayerList().subscribe(newData => {
-    //   this.playerList = newData
-    // });
-    this.playerList = this.playerListService.getPlayerList()
+    this.playerList = this.playerListService.getPlayerList();
+    // this.playerList = this.playerListService.getPlayerList()
     this.auth.getUser().subscribe(newUser => {
       this.user = newUser
     })

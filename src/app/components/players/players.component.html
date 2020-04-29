@@ -4,7 +4,7 @@
     </div>
     <h1 class="display-4">Players List :</h1>
     <div class="d-flex justify-content-around flex-wrap">
-        <div *ngFor="let player of playerList" class="card text-center" style="width: 18rem;">
+        <div *ngFor="let player of playerList | async" class="card text-center" style="width: 18rem;">
             <img class="card-img-top" [src]="player.image" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">#{{player.id}}. {{player.name}}</h5>
